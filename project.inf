@@ -1,0 +1,9 @@
+Name: myx.os-ubuntu
+Requires: 
+Augments: 
+Suggests: 
+Declares: 
+Provides:	os.any \
+			os.unix \
+			os.ubuntu \
+			build.ubuntu-installer:build-tool
