@@ -19,7 +19,7 @@ InstallEnsurePackage(){
 		        	break
 					;;
 		esac
-	 	pkg install -y $PACKAGE_NAME
+		apt install -y $PACKAGE_NAME
 	fi
 }
 
