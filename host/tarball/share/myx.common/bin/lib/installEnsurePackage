@@ -15,7 +15,7 @@ InstallEnsurePackage(){
 	 else \
 		case "$PACKAGE_NAME" in
 		        java)
-		        	PACKAGE_NAME="openjdk8"
+				PACKAGE_NAME="default-jdk"
 		        	break
 					;;
 		esac
