@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 set -e
 
@@ -15,13 +15,9 @@ InstallUserGroupMembership(){
 		GROUP="$NAME"
 	fi
 	
-	pwd_mkdb /etc/master.passwd
-
-	pw groupshow "$GROUP" || pw groupadd -n "$GROUP"
+	getent group "$GROUP" || groupadd --system "$GROUP"
 	
-	pw groupmod "$GROUP" -m "$NAME"
-
-	pwd_mkdb /etc/master.passwd
+	adduser "$NAME" "$GROUP"
 }
 
 case "$0" in
