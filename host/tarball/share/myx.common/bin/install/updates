@@ -17,14 +17,27 @@ InstallUpdates(){
 	#   . ${0%/*}/../../include/subr.sh
 	#   UserRequireRoot
 	# we do:
-	test `id -u` = 0 || { echo "$0: Must be run under root user!" ; exit 1 ; }
-	test ! -z "`which apt-get || true`" || { echo "$0: apt-get is required!" ; exit 1 ; }
+	[ `id -u` = 0 ] || { echo "$0: Must be run under root user!" ; exit 1 ; }
+	[ ! -z "`which apt-get || true`" ] || { echo "$0: apt-get is required!" ; exit 1 ; }
 	
 	TryFetchStdout https://raw.githubusercontent.com/myx/os-myx.common/master/sh-scripts/install-myx.common.sh | sh -e
 	 
-	apt-get autoremove
-	apt-get update
+	apt-get autoremove -y
+	apt-get update -y
 	apt-get dist-upgrade -y
+	# apt-get autoremove -y
+	
+	if [ ! -z "`which grub-install || true`" ] ; then
+		echo "'grub-install' present, checking disks"
+		for DNAME in "sda" "sdb" "sdc" "sdd" "vda" "vdb" ; do
+			if [ -e "/dev/${DNAME}1" ] ; then
+				echo "'grub-install' trying disk: /dev/$DNAME"
+				grub-install "/dev/$DNAME" &
+			fi
+		done
+		wait
+		echo "'grub-install' done."
+	fi
 }
 
 
