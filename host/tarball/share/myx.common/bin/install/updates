@@ -28,7 +28,9 @@ InstallUpdates(){
 	# apt-get autoremove -y
 	
 	if [ ! -z "`which grub-install || true`" ] ; then
-		echo "'grub-install' present, checking disks"
+		echo "'grub-install' present, updating grub config..."
+		update-grub2
+		echo "'grub-install' present, checking disks..."
 		for DNAME in "sda" "sdb" "sdc" "sdd" "vda" "vdb" ; do
 			if [ -e "/dev/${DNAME}1" ] ; then
 				echo "'grub-install' trying disk: /dev/$DNAME"
