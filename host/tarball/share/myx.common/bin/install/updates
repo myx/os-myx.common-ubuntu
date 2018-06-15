@@ -34,10 +34,9 @@ InstallUpdates(){
 		for DNAME in "sda" "sdb" "sdc" "sdd" "vda" "vdb" ; do
 			if [ -e "/dev/${DNAME}1" ] ; then
 				echo "'grub-install' trying disk: /dev/$DNAME"
-				grub-install "/dev/$DNAME" &
+				grub-install "/dev/$DNAME"
 			fi
 		done
-		wait
 		echo "'grub-install' done."
 	fi
 }
