@@ -22,15 +22,10 @@ curl -L https://github.com/myx/os-myx.common/archive/master.tar.gz --silent | \
 curl -L https://github.com/myx/os-myx.common-ubuntu/archive/master.tar.gz --silent | \
 		tar zxvf - -C "/usr/local/" --wildcards "**/host/tarball/*" --strip-components=3
 
-chown root:wheel "/usr/local/bin/myx.common"
+chown root:adm "/usr/local/bin/myx.common"
 chmod 755 "/usr/local/bin/myx.common"
 
-chown -R root:wheel "/usr/local/share/myx.common/bin"
+chown -R root:adm "/usr/local/share/myx.common/bin"
 chmod -R 755 "/usr/local/share/myx.common/bin"
 
-# exec "/usr/local/share/myx.common/bin/reinstall"
-
-#
-# completion for root in bash:
-# 		myx.common setup/console
-#
+echo "myx.common: installed, run 'myx.common help' for more info."
