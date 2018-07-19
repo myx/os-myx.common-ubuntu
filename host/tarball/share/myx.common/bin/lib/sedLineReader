@@ -2,9 +2,11 @@
 
 ## NOTE: because of ubuntu not supporting the '-l' option
 
-SedLineReader(){
-	stdbuf -oL -eL sed -u "$@"
-}
+alias SedLineReader='stdbuf -oL -eL sed -u'
+
+# SedLineReader(){
+# 	stdbuf -oL -eL sed -u "$@"
+# }
 
 case "$0" in
 	*/myx.common/bin/lib/sedLineReader) 
