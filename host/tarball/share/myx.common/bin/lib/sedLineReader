@@ -2,6 +2,7 @@
 
 ## NOTE: because of ubuntu not supporting the '-l' option
 
+export SedLineReader='stdbuf -oL -eL sed -u'
 alias SedLineReader='stdbuf -oL -eL sed -u'
 
 # SedLineReader(){
