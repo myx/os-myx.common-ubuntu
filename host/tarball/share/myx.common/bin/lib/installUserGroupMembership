@@ -8,17 +8,21 @@ type UserRequireRoot >/dev/null 2>&1 || \
 InstallUserGroupMembership(){
 	UserRequireRoot "InstallUserGroupMembership"
 
-	local NAME="$1" GROUP="$2"
+	local NAME="$1"; shift;
+	local GROUPS="$@"
 
 	test ! -z "$NAME" || ( echo "InstallUserGroupMembership: username is required!" ; exit 1 )
-	if test -z "$GROUP" ; then
+	if test -z "$GROUPS" ; then
 		echo "InstallUserGroupMembership: groupname is taken from username ($NAME)!"
-		GROUP="$NAME"
+		GROUPS="$NAME"
 	fi
 	
-	getent group "$GROUP" || groupadd --system "$GROUP"
 	
-	adduser "$NAME" "$GROUP"
+	for GROUP in $GROUPS ; do
+		getent group "$GROUP" || groupadd --system "$GROUP"
+		# adduser "$NAME" "$GROUP"
+		usermod -a -G "$GROUP" "$NAME"
+	done
 }
 
 case "$0" in
