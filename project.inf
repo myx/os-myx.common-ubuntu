@@ -6,6 +6,7 @@ Provides: \
 	source-process:project-source.tgz \
 	deploy-export:project-source.tgz:github.com/myx/os-myx.common-ubuntu/archive/master.tar.gz \
 	deploy-export:sh-scripts/install-myx.common-ubuntu.sh:raw.githubusercontent.com/myx/os-myx.common-ubuntu/master/sh-scripts/install-myx.common-ubuntu.sh \
+	deploy-keyword:ubuntu \
 
 Augments: 
 Suggests: 
