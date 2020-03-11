@@ -17,6 +17,12 @@ TuneNetworkProtect(){
 	
 	SetSysctlConf net.ipv4.tcp_synack_retries 2 || true
 	SetSysctlConf net.ipv4.tcp_rfc1337 1 || true
+	
+	SetSysctlConf net.ipv4.tcp_keepalive_time --shrink 300 || true
+	SetSysctlConf net.ipv4.tcp_keepalive_probes --shrink 5 || true
+	SetSysctlConf net.ipv4.tcp_keepalive_intvl --shrink 15 || true
+
+	SetSysctlConf net.ipv4.tcp_tw_reuse 1 || true
 }
 
 

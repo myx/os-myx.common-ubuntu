@@ -30,7 +30,7 @@ TuneNetworkSpeed(){
 
 	SetSysctlConf net.core.somaxconn --grow 2048 || true
 	SetSysctlConf net.ipv4.tcp_fin_timeout --shrink 15 || true
-	SetSysctlConf net.ipv4.ip_local_port_range "2000 65535" || true
+	SetSysctlConf net.ipv4.ip_local_port_range "2000	65535" || true
 
 	# https://easyengine.io/tutorials/linux/sysctl-conf/
 	
