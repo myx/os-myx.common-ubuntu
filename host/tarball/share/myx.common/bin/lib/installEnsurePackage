@@ -20,7 +20,7 @@ InstallEnsurePackage(){
 		        	break
 					;;
 		        java)
-				PACKAGE_NAME="default-jdk"
+					PACKAGE_NAME="default-jdk"
 		        	break
 					;;
 		esac
