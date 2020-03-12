@@ -15,6 +15,10 @@ InstallEnsurePackage(){
 		echo "Utility is present: $UTILITY_NAME, skip" >&2
 	 else \
 		case "$PACKAGE_NAME" in
+		        go)
+		        	PACKAGE_NAME="golang"
+		        	break
+					;;
 		        java)
 				PACKAGE_NAME="default-jdk"
 		        	break
