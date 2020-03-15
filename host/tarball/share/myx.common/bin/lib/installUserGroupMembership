@@ -14,11 +14,11 @@ InstallUserGroupMembership(){
 	test ! -z "$NAME" || ( echo "InstallUserGroupMembership: username is required!" ; exit 1 )
 	if test -z "$GROUPS" ; then
 		echo "InstallUserGroupMembership: groupname is taken from username ($NAME)!"
-		GROUPS="$NAME"
+		local GROUPS="$NAME"
 	fi
 	
 	
-	for GROUP in $GROUPS ; do
+	for GROUP in "$GROUPS" ; do
 		getent group "$GROUP" || groupadd --system "$GROUP"
 		# adduser "$NAME" "$GROUP"
 		usermod -a -G "$GROUP" "$NAME"
