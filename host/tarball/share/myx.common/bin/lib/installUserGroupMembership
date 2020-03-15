@@ -9,16 +9,16 @@ InstallUserGroupMembership(){
 	UserRequireRoot "InstallUserGroupMembership"
 
 	local NAME="$1"; shift;
-	local GROUPS="$@"
+	local GRPS="$@"
 
 	test ! -z "$NAME" || ( echo "InstallUserGroupMembership: username is required!" ; exit 1 )
-	if test -z "$GROUPS" ; then
+	if test -z "$GRPS" ; then
 		echo "InstallUserGroupMembership: groupname is taken from username ($NAME)!"
-		local GROUPS="$NAME"
+		local GRPS="$NAME"
 	fi
 	
 	
-	for GROUP in "$GROUPS" ; do
+	for GROUP in "$GRPS" ; do
 		getent group "$GROUP" || groupadd --system "$GROUP"
 		# adduser "$NAME" "$GROUP"
 		usermod -a -G "$GROUP" "$NAME"
