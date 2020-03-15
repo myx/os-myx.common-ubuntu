@@ -2,7 +2,7 @@
 
 # There are two ways:
 #
-# 1) fetch https://raw.githubusercontent.com/myx/os-myx.common-ubuntu/master/sh-scripts/install-myx.common-ubuntu.sh -o - | sh -e
+# 1) curl -L https://raw.githubusercontent.com/myx/os-myx.common-ubuntu/master/sh-scripts/install-myx.common-ubuntu.sh | sh -e
 # or
 # 2) To execute this as a script, run:
 #		sh -c 'eval "`cat`"'
