@@ -18,10 +18,10 @@ InstallUserGroupMembership(){
 	fi
 	
 	
-	for GROUP in "$GRPS" ; do
-		getent group "$GROUP" || groupadd --system "$GROUP"
-		# adduser "$NAME" "$GROUP"
-		usermod -a -G "$GROUP" "$NAME"
+	for GRP in "$GRPS" ; do
+		getent group "$GRP" || groupadd --system "$GRP"
+		# adduser "$NAME" "$GRP"
+		usermod -a -G "$GRP" "$NAME"
 	done
 }
 
