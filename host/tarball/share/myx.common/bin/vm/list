@@ -3,6 +3,10 @@
 ##### !!! THIS SCRIPT MUST BE OVERRIDEN IN OS-DEPENDENT IMPLEMENTATION !!! #####
 
 VmList(){
+	if [ -z "`which virsh`" ] ; then
+		echo "VmList: 'virsh' (kvm control utility) is not installed!"
+		return 1
+	fi
 	virsh list --all
 }
 
