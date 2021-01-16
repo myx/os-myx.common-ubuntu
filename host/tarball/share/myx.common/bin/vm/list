@@ -4,7 +4,7 @@
 
 VmList(){
 	if [ -z "`which virsh`" ] ; then
-		echo "VmList: 'virsh' (kvm control utility) is not installed!"
+		echo "ERROR: VmList: 'virsh' (kvm control utility) is not installed!" >&2
 		return 1
 	fi
 	virsh list --all
