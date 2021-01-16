@@ -36,7 +36,7 @@ SetupHostCompletion(){
 	echo "Setting up completion for host" >&2
 	
 	
-	if [ -x "`which bash 2> /dev/null`" ] ; then
+	if [ -x "`which bash 2> /dev/null`" ] && [ -f "/etc/bashrc" ] ; then
 		ReplaceLine "/etc/bashrc" " ### myx.common completion ###$" \
 			"complete -W '\`myx.common help --bare\`' myx.common  ### myx.common completion ###"
 	fi
