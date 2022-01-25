@@ -7,7 +7,7 @@ VmList(){
 		echo "ERROR: VmList: 'virsh' (kvm control utility) is not installed!" >&2
 		return 1
 	fi
-	virsh list --all
+	virsh list --all --title
 }
 
 case "$0" in
