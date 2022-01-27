@@ -32,8 +32,6 @@ InstallUser(){
 		useradd --system "$NAME" -g "$NAME" ${UGID:+--uid $UGID} -c "$TITLE" -d "$UHOME" -s /bin/sh
 	fi
 
-	adduser "$NAME" "$NAME"
-
 	chown $NAME:$NAME "$UHOME/"
 	chmod 700 "$UHOME/"
 
