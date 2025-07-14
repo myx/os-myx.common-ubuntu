@@ -1,9 +1,0 @@
-#/bin/sh
-
-#
-# To execute this as a script, run:
-#		sh -c 'eval "`cat`"'
-# on the target machine, paste whole text from this file, then press CTRL+D.
-#
-
-echo Initializing installer script  >&2

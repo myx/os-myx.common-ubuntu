@@ -1,13 +1,11 @@
 Name: os-myx.common-ubuntu
 Requires: os-myx.common
 Provides: \
-	os.any os.ubuntu os-myx.common-ubuntu myx.common/os-myx.common-ubuntu \
-	ubuntu-installer.sh:build.ubuntu-installer \
-	source-process:project-source.tgz \
-	deploy-export:project-source.tgz:github.com/myx/os-myx.common-ubuntu/archive/master.tar.gz \
+	os.any os.ubuntu os-myx.common-ubuntu myx/os-myx.common-ubuntu myx.common/os-myx.common-ubuntu \
 	deploy-export:sh-scripts/install-myx.common-ubuntu.sh:raw.githubusercontent.com/myx/os-myx.common-ubuntu/master/sh-scripts/install-myx.common-ubuntu.sh \
 
 Keywords: \
+	myx.common \
 	ubuntu \
 
 Augments: 
