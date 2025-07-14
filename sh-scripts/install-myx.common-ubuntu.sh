@@ -11,15 +11,9 @@
 
 echo "myx.common Ubuntu/Linux Installer started..." >&2
 
-#
-# Check user
-#
 test `id -u` != 0 && echo '⛔ ERROR: Must be root!' >&2 && exit 1
 
 curl -L https://github.com/myx/os-myx.common/archive/master.tar.gz --silent | \
-		tar zxvf - -C "/usr/local/" --wildcards "**/host/tarball/*" --strip-components=3
-		
-curl -L https://github.com/myx/os-myx.common-ubuntu/archive/master.tar.gz --silent | \
 		tar zxvf - -C "/usr/local/" --wildcards "**/host/tarball/*" --strip-components=3
 
 chown root:adm "/usr/local/bin/myx.common"
